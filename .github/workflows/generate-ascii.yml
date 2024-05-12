@@ -13,5 +13,7 @@ jobs:
           run: ls -ltra
         
         - name: execute shell script
-          run: ./shell-scr.sh
+          run: |
+            chmod +x shell-scr.sh
+            ./shell-scr.sh
         
