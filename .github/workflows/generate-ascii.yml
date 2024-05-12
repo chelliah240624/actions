@@ -1,0 +1,26 @@
+name: ascii generator
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+
+        - name: checkout repo
+          uses: actions/checkout@v4
+          
+        - name: install cowsey
+          run: sudo apt-get install cowsay -y
+
+        - name: Generate custom artwork
+          run: cowsay -f dragon "Dragon master" >> abc.txt
+
+        - name: file check
+          run: grep -i "dragon" abc.txt
+
+        - name: read file
+          run: cat abc.txt
+        
+        - name: list files
+          run: ls -ltra
